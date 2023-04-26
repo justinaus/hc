@@ -1,16 +1,14 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        Hello World
+    <main>
+      <div>
+        목록 페이지
       </div>
+      <Link href={'/workout/create'}>
+        운동 등록
+      </Link>
     </main>
   )
 }
