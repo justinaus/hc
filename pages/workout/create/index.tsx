@@ -10,8 +10,30 @@ export default function WorkoutCreate() {
 
   function handleSubmit(e:FormEvent<HTMLFormElement>) {
     e.preventDefault();
+
+    const WORKOUTS = 'workouts';
     
-    alert(workoutValue);
+    const workouts = localStorage.getItem(WORKOUTS);
+
+    if(!workouts) {
+      localStorage.setItem(WORKOUTS, JSON.stringify([workoutValue]));
+
+      console.log('localStorage', localStorage.getItem(WORKOUTS));
+
+      return;
+    }
+
+    try {
+      const parsedWorkouts = JSON.parse(workouts) as string[];
+
+      const merged = [...parsedWorkouts, workoutValue];
+
+      localStorage.setItem(WORKOUTS, JSON.stringify(merged));
+
+      console.log('localStorage', localStorage.getItem(WORKOUTS));
+    } catch (error) {
+      alert('error!');
+    }
   }
 
   return (
