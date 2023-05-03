@@ -9,7 +9,8 @@ export default function WorkoutCreate() {
   }
 
   function handleSubmit(e:FormEvent<HTMLFormElement>) {
-    // e.preventDefault();
+    e.preventDefault();
+    
     alert(workoutValue);
   }
 
