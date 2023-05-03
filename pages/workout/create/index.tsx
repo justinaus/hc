@@ -1,10 +1,16 @@
 import Link from "next/link";
-import { FormEvent } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 export default function WorkoutCreate() {
+  const [workoutValue, setWorkoutValue] = useState('');
+
+  function handleChange(e:ChangeEvent<HTMLInputElement>) {
+    setWorkoutValue(e.target.value);
+  }
+
   function handleSubmit(e:FormEvent<HTMLFormElement>) {
     // e.preventDefault();
-    alert((e.target as any).name.value);
+    alert(workoutValue);
   }
 
   return (
@@ -15,7 +21,7 @@ export default function WorkoutCreate() {
       <form onSubmit={handleSubmit}>
         <label>
           부위:
-          <input type="text" name="name" />
+          <input type="text" name="name" value={workoutValue} onChange={handleChange} />
         </label>
         <input type="submit" value="Submit" />
       </form>
