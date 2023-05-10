@@ -1,9 +1,12 @@
 import Link from "next/link";
+import { useEffect } from "react";
 
 const WORKOUTS = 'workouts';
 
 export default function Home() {
-  console.log(localStorage.getItem(WORKOUTS));
+  useEffect(() => {
+    console.log(localStorage.getItem(WORKOUTS));
+  },[]);
 
   return (
     <main>
