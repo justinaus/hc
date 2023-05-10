@@ -1,6 +1,10 @@
 import Link from "next/link";
 
+const WORKOUTS = 'workouts';
+
 export default function Home() {
+  console.log(localStorage.getItem(WORKOUTS));
+
   return (
     <main>
       <div>
