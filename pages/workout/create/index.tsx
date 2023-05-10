@@ -23,6 +23,7 @@ export default function WorkoutCreate() {
       return;
     }
 
+    // 그냥 내 컨벤션: 소스 코드 외의 통제 불가능 영역 경우만, try catch 사용.
     try {
       const parsedWorkouts = JSON.parse(workouts) as string[];
 
